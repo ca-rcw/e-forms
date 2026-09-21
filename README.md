@@ -7,7 +7,7 @@ Official web application for the F-TGN thesis forms of the College of Agricultur
 - Homepage with the complete F-TGN form catalogue
 - Search and category filters
 - Responsive desktop and mobile layout
-- Working F-TGN-001 Nomination of Thesis Adviser generator
+- Working generators from F-TGN-001 through F-TGN-007B
 - ADSSU and College of Agriculture branding
 
 ## Local development
