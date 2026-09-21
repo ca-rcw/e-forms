@@ -21,6 +21,7 @@ const forms = [
 ];
 
 const categories = ["All forms", "Advising & Approval", "Examination", "Processing", "Distribution", "Research Documents"];
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
 
 export default function Home() {
   const [query, setQuery] = useState("");
@@ -38,8 +39,8 @@ export default function Home() {
         <div className="mx-auto flex max-w-[1240px] items-center justify-between px-5 py-4 lg:px-8">
           <a href="#top" className="flex min-w-0 items-center gap-2 sm:gap-3" aria-label="College of Agriculture E-Form Generator home">
             <div className="flex shrink-0 items-center gap-1.5 sm:gap-2">
-              <img src="/assets/adssu-seal.png" alt="Agusan del Sur State University logo" className="h-12 w-12 object-contain sm:h-16 sm:w-16" />
-              <img src="/assets/college-of-agriculture-logo.png" alt="College of Agriculture logo" className="h-12 w-12 rounded-full object-contain sm:h-16 sm:w-16" />
+              <img src={`${basePath}/assets/adssu-seal.png`} alt="Agusan del Sur State University logo" className="h-12 w-12 object-contain sm:h-16 sm:w-16" />
+              <img src={`${basePath}/assets/college-of-agriculture-logo.png`} alt="College of Agriculture logo" className="h-12 w-12 rounded-full object-contain sm:h-16 sm:w-16" />
             </div>
             <div className="min-w-0 border-l border-[#174f2a]/15 pl-3">
               <p className="truncate text-[0.72rem] font-bold uppercase tracking-[0.13em] text-[#39704b]">College of Agriculture · ADSSU</p>
@@ -77,7 +78,7 @@ export default function Home() {
         {visibleForms.length ? <div className="mt-6 grid gap-5 md:grid-cols-2">{visibleForms.map((form) => {
           const Icon = form.icon; const available = form.status === "Available";
           const content = <><div className="flex items-start justify-between gap-4"><span className="grid h-12 w-12 place-items-center rounded-2xl bg-[#eef6ef] text-[#174f2a]"><Icon size={24} /></span><span className={`inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-xs font-bold ${available ? "bg-[#e8f7ec] text-[#1f6a36]" : "bg-[#fff3d8] text-[#8a5b00]"}`}>{available ? <CheckCircle2 size={14} /> : <Clock3 size={14} />}{form.status}</span></div><p className="mt-6 text-xs font-extrabold uppercase tracking-[0.15em] text-[#b47600]">{form.code}</p><h3 className="mt-2 font-serif text-2xl font-bold leading-tight">{form.title}</h3><p className="mt-3 flex-1 leading-7 text-[#607064]">{form.description}</p><div className="mt-6 flex items-center justify-between border-t border-[#174f2a]/10 pt-4 text-sm font-bold"><span className="text-[#718076]">{form.category}</span><span className={available ? "flex items-center gap-2 text-[#174f2a]" : "text-[#8b968e]"}>{available ? <>Open form <ArrowRight size={17} /></> : "In preparation"}</span></div></>;
-          return available ? <a key={form.code} href={form.href} className="group flex min-h-[300px] flex-col rounded-3xl border border-[#174f2a]/12 bg-white p-6 shadow-[0_14px_36px_rgba(23,79,42,.07)] transition hover:-translate-y-1 hover:border-[#174f2a]/30 hover:shadow-[0_20px_45px_rgba(23,79,42,.12)] sm:p-7">{content}</a> : <article key={form.code} className="flex min-h-[300px] flex-col rounded-3xl border border-[#174f2a]/10 bg-white/65 p-6 sm:p-7">{content}</article>;
+          return available ? <a key={form.code} href={`${basePath}${form.href}`} className="group flex min-h-[300px] flex-col rounded-3xl border border-[#174f2a]/12 bg-white p-6 shadow-[0_14px_36px_rgba(23,79,42,.07)] transition hover:-translate-y-1 hover:border-[#174f2a]/30 hover:shadow-[0_20px_45px_rgba(23,79,42,.12)] sm:p-7">{content}</a> : <article key={form.code} className="flex min-h-[300px] flex-col rounded-3xl border border-[#174f2a]/10 bg-white/65 p-6 sm:p-7">{content}</article>;
         })}</div> : <div className="mt-6 rounded-3xl border border-dashed border-[#174f2a]/25 bg-white p-12 text-center"><FileSearch className="mx-auto text-[#39704b]" size={34} /><h3 className="mt-4 text-xl font-bold">No forms found</h3><p className="mt-2 text-[#607064]">Try another title, document code, or category.</p></div>}
       </section>
 
@@ -87,8 +88,8 @@ export default function Home() {
         <div className="mx-auto flex max-w-[1240px] flex-col justify-between gap-7 px-5 py-9 lg:flex-row lg:items-center lg:px-8">
           <div className="flex items-center gap-3">
             <div className="flex shrink-0 items-center gap-1.5">
-              <img src="/assets/adssu-seal.png" alt="" className="h-11 w-11 object-contain" />
-              <img src="/assets/college-of-agriculture-logo.png" alt="" className="h-11 w-11 rounded-full object-contain" />
+              <img src={`${basePath}/assets/adssu-seal.png`} alt="" className="h-11 w-11 object-contain" />
+              <img src={`${basePath}/assets/college-of-agriculture-logo.png`} alt="" className="h-11 w-11 rounded-full object-contain" />
             </div>
             <div>
               <p className="font-bold text-white">College of Agriculture E-Form Generator</p>

@@ -30,3 +30,10 @@ The homepage source is in `app/`. Institutional assets and the currently availab
 ## Existing form archive
 
 The repository's original `F-TGN-001/index.html` is retained separately for continuity. The homepage application opens the deployed copy at `public/forms/f-tgn-001.html`.
+
+## Published websites
+
+- GitHub Pages: `https://ca-rcw.github.io/e-forms/`
+- ChatGPT Sites: `https://adssu-eform-generator.dabdabdesu.chatgpt.site`
+
+Updates merged into `main` are automatically built and deployed to GitHub Pages by the workflow in `.github/workflows/deploy-pages.yml`.
